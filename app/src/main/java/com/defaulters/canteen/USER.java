@@ -3,7 +3,7 @@ package com.defaulters.canteen;
 public class USER {
 
 
-    String name,email,password,phoneNumber,department,ID;
+    String name,email,phoneNumber,department,money;
 
 
     public USER()
@@ -12,12 +12,12 @@ public class USER {
     }
 
 
-    public String getID() {
-        return ID;
+    public String getMoney() {
+        return money;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setMoney(String money) {
+        this.money = money;
     }
 
     public String getName() {
@@ -34,14 +34,6 @@ public class USER {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getPhoneNumber() {

@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.enterpassword);
         phoneNumber = findViewById(R.id.enterPhone);
         department = findViewById(R.id.enterDepartment);
-        email = findViewById(R.id.enterDepartment);
+        email = findViewById(R.id.enterEmail);
 
 
         register = findViewById(R.id.buttonRegister);
@@ -50,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                flag = 0;
                 validate();
 
             }
@@ -66,10 +67,10 @@ public class RegisterActivity extends AppCompatActivity {
                 && TextUtils.isEmpty(phoneNumber.getText().toString().trim()) && TextUtils.isEmpty(department.getText().toString().trim()))
         {
             flag = 1;
-            name.setError("Enter Employee ID");
-            password.setError("Enter Employee Password");
-            phoneNumber.setError("Enter Employee ID");
-            department.setError("Enter Employee Password");
+            name.setError("Enter Name");
+            password.setError("Enter Password");
+            phoneNumber.setError("Enter Phone number");
+            department.setError("Enter Employee Department");
             return;
 
         }
@@ -77,13 +78,31 @@ public class RegisterActivity extends AppCompatActivity {
         if(TextUtils.isEmpty(name.getText().toString().trim()))
         {
             flag = 1;
-            name.setError("Enter Employee ID");
+            name.setError("Enter Name");
             return;
 
         }
 
 
-        if(email.getText().toString().trim().matches(emailPattern))
+        if(TextUtils.isEmpty(password.getText().toString().trim()))
+        {
+            flag = 1;
+            password.setError("Enter Password");
+            return;
+
+        }
+
+
+        if(TextUtils.isEmpty(department.getText().toString().trim()))
+        {
+            flag = 1;
+            department.setError("Enter Department!");
+            return;
+
+        }
+
+
+        if(!email.getText().toString().trim().matches(emailPattern))
         {
             flag = 1;
             email.setError("Enter proper Email");
@@ -127,6 +146,7 @@ public class RegisterActivity extends AppCompatActivity {
                             user.setEmail(email.getText().toString().trim());
                             user.setPhoneNumber(phoneNumber.getText().toString().trim());
                             user.setDepartment(department.getText().toString().trim());
+                            user.setMoney("0");
                             documentReference.set(user);
 
                             Toast.makeText(getApplicationContext(), "Register Successfully", Toast.LENGTH_SHORT).show();

@@ -1,5 +1,6 @@
 package com.defaulters.canteen;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,7 +9,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                flag = 0;
 
                 validate();
 
@@ -83,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
 
-        if(userEmail.getText().toString().trim().matches(emailPattern))
+        if(!userEmail.getText().toString().trim().matches(emailPattern))
         {
             flag = 1;
             userEmail.setError("Enter proper Email");
@@ -106,7 +113,25 @@ public class LoginActivity extends AppCompatActivity {
     private void login() {
 
 
+        firebaseAuth.signInWithEmailAndPassword(userEmail.getText().toString().trim(),userPassword.getText().toString().trim())
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
 
+                        if(task.isSuccessful())
+                        {
+
+                            Toast.makeText(getApplicationContext(),"ADMIN Logged in Successfully!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),UserHomeActivity.class));
+
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(), "EMAIL and Password does not match!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
 
 
 
