@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "726168107532",
+    "project_id": "nmpy-codicon",
+    "storage_bucket": "nmpy-codicon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726168107532:android:4fe8da7215e8d27e5a8c29",
+        "android_client_info": {
+          "package_name": "com.defaulters.canteen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726168107532-sh3uvkh1rcg68u4b8hihs6vu33t60f9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEYOmOaIyb2zVZGr9r1Yeqz4qvWRkgLpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726168107532-sh3uvkh1rcg68u4b8hihs6vu33t60f9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
