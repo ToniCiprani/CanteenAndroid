@@ -3,7 +3,7 @@ package com.defaulters.canteen;
 public class USER {
 
 
-    String name,email,phoneNumber,department,money;
+    String name,email,phoneNumber,department,money,cartID;
 
 
     public USER()
@@ -11,6 +11,14 @@ public class USER {
 
     }
 
+
+    public String getCartID() {
+        return cartID;
+    }
+
+    public void setCartID(String cartID) {
+        this.cartID = cartID;
+    }
 
     public String getMoney() {
         return money;

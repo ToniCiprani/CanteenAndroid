@@ -147,6 +147,7 @@ public class RegisterActivity extends AppCompatActivity {
                             user.setPhoneNumber(phoneNumber.getText().toString().trim());
                             user.setDepartment(department.getText().toString().trim());
                             user.setMoney("0");
+                            user.setCartID(generateRandomID());
                             documentReference.set(user);
 
                             Toast.makeText(getApplicationContext(), "Register Successfully", Toast.LENGTH_SHORT).show();
@@ -158,4 +159,18 @@ public class RegisterActivity extends AppCompatActivity {
                 });
 
     }
+
+
+    public String generateRandomID()
+    {
+        String chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder randID= new StringBuilder();
+        for(int i=0;i<20;i++)
+        {
+            randID.append(chars.charAt((int) Math.floor(Math.random() * chars.length())));
+        }
+        return randID.toString();
+    }
+
+
 }
